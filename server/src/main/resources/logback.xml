@@ -1,0 +1,20 @@
+<!--
+	Copyrighted (Kord Extensions, 2024). Licensed under the EUPL-1.2
+	with the specific provision (EUPL articles 14 & 15) that the
+	applicable law is the Irish law and the Jurisdiction Dublin.
+	
+	Any redistribution must include the specific provision above.
+-->
+
+<configuration>
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>%d{YYYY-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+		</encoder>
+	</appender>
+	<root level="trace">
+		<appender-ref ref="STDOUT"/>
+	</root>
+	<logger name="org.eclipse.jetty" level="INFO"/>
+	<logger name="io.netty" level="INFO"/>
+</configuration>
