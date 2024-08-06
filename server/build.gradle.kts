@@ -1,3 +1,5 @@
+import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
+
 plugins {
 	id("io.ktor.plugin") version "2.3.12"
 
@@ -17,4 +19,10 @@ dependencies {
 	implementation(libs.bundles.logging)
 	implementation(libs.bundles.ktor)
 	implementation(libs.bundles.database)
+}
+
+tasks.withType<ShadowJar> {
+	mergeServiceFiles {
+		setPath("META-INF/services/org.flywaydb.core.extensibility.Plugin")
+	}
 }

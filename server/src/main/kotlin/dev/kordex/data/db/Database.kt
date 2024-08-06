@@ -55,6 +55,7 @@ object Database {
 		val flyway = Flyway.configure()
 			.driver(DB_DRIVER)
 			.dataSource("jdbc:$DB_URL", DB_USER, DB_PASSWORD)
+			.validateMigrationNaming(true)
 			.load()
 
 		if (!System.getenv().contains("SKIP_MIGRATIONS")) {
