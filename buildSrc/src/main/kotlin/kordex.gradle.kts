@@ -1,3 +1,6 @@
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
 plugins {
 	id("dev.yumi.gradle.licenser")
 	id("io.gitlab.arturbosch.detekt")
@@ -35,5 +38,16 @@ val sourceJar = task("sourceJar", Jar::class) {
 tasks {
 	build {
 		finalizedBy(sourceJar)
+	}
+
+	java {
+		sourceCompatibility = JavaVersion.VERSION_13
+		targetCompatibility = JavaVersion.VERSION_13
+	}
+
+	withType<KotlinCompile>().configureEach {
+		compilerOptions {
+			jvmTarget = JvmTarget.JVM_13
+		}
 	}
 }
