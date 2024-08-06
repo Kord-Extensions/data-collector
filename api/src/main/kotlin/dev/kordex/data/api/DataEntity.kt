@@ -22,6 +22,8 @@ data class DataEntity(
 	val id: UUID? = null,
 
 	val submitted: LocalDateTime = Clock.System.now().toLocalDateTime(TimeZone.UTC),
+	val updated: LocalDateTime? = null,
+
 	val metricType: DataCollection,
 
 	// Minimal data
@@ -39,8 +41,6 @@ data class DataEntity(
 	val pluginCount: Int? = null,
 
 	// Extra data
-	val averageEventDelay: Int? = null,
-	val averageEventThroughput: Int? = null,
 	val cpuCount: Int? = null,
 	val cpuGhz: Float? = null,
 	val eventHandlerTypes: StringList? = null,
@@ -79,8 +79,6 @@ data class DataEntity(
 		}
 
 		if (pluginCount != other.pluginCount) return false
-		if (averageEventDelay != other.averageEventDelay) return false
-		if (averageEventThroughput != other.averageEventThroughput) return false
 		if (cpuCount != other.cpuCount) return false
 		if (cpuGhz != other.cpuGhz) return false
 
@@ -119,31 +117,29 @@ data class DataEntity(
 	override fun hashCode(): Int {
 		var result = id?.hashCode() ?: 0
 
-		result = 31 * result + submitted.hashCode()
-		result = 31 * result + metricType.hashCode()
-		result = 31 * result + devMode.hashCode()
-		result = 31 * result + kordExVersion.hashCode()
-		result = 31 * result + kordVersion.hashCode()
-		result = 31 * result + modules.hashCode()
 		result = 31 * result + (botId?.hashCode() ?: 0)
 		result = 31 * result + (botName?.hashCode() ?: 0)
-		result = 31 * result + (extensionCount ?: 0)
-		result = 31 * result + (guildCount ?: 0)
-		result = 31 * result + (intents?.contentHashCode() ?: 0)
-		result = 31 * result + (pluginCount ?: 0)
-		result = 31 * result + (averageEventDelay ?: 0)
-		result = 31 * result + (averageEventThroughput ?: 0)
 		result = 31 * result + (cpuCount ?: 0)
 		result = 31 * result + (cpuGhz?.hashCode() ?: 0)
 		result = 31 * result + (eventHandlerTypes?.contentHashCode() ?: 0)
+		result = 31 * result + (extensionCount ?: 0)
 		result = 31 * result + (extensions?.contentHashCode() ?: 0)
+		result = 31 * result + (guildCount ?: 0)
+		result = 31 * result + (intents?.contentHashCode() ?: 0)
 		result = 31 * result + (jvmVersion?.hashCode() ?: 0)
 		result = 31 * result + (kotlinVersion?.hashCode() ?: 0)
+		result = 31 * result + (pluginCount ?: 0)
 		result = 31 * result + (plugins?.contentHashCode() ?: 0)
 		result = 31 * result + (ramAvailable?.hashCode() ?: 0)
 		result = 31 * result + (teamId?.hashCode() ?: 0)
 		result = 31 * result + (teamName?.hashCode() ?: 0)
 		result = 31 * result + (threadCount ?: 0)
+		result = 31 * result + devMode.hashCode()
+		result = 31 * result + kordExVersion.hashCode()
+		result = 31 * result + kordVersion.hashCode()
+		result = 31 * result + metricType.hashCode()
+		result = 31 * result + modules.hashCode()
+		result = 31 * result + submitted.hashCode()
 
 		return result
 	}

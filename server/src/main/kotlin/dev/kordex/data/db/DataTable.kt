@@ -20,6 +20,8 @@ import org.jetbrains.exposed.sql.kotlin.datetime.datetime
 
 object DataTable : UUIDTable("data") {
 	val submitted = datetime("submitted").clientDefault { Clock.System.now().toLocalDateTime(TimeZone.UTC) }
+	val updated = datetime("updated").nullable()
+
 	val metricType = text("metric_type")
 
 	// Minimal data
@@ -37,8 +39,6 @@ object DataTable : UUIDTable("data") {
 	val pluginCount = integer("plugin_count").nullable()
 
 	// Extra data
-	val averageEventDelay = integer("average_event_delay").nullable()
-	val averageEventThroughput = integer("average_event_throughput").nullable()
 	val cpuCount = integer("cpu_count").nullable()
 	val cpuGhz = float("cpu_ghz").nullable()
 	val eventHandlerTypes = json<StringList>("event_handler_types", Json).nullable()
