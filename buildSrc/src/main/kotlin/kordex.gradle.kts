@@ -25,3 +25,15 @@ detekt {
 license {
 	rule(rootProject.file("codeformat/HEADER"))
 }
+
+val sourceJar = task("sourceJar", Jar::class) {
+	dependsOn(tasks["classes"])
+	archiveClassifier = "sources"
+	from(sourceSets.main.get().allSource)
+}
+
+tasks {
+	build {
+		finalizedBy(sourceJar)
+	}
+}
