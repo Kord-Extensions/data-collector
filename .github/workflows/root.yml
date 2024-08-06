@@ -65,6 +65,6 @@ jobs:
       - name: Publish Containers
 
         run: |
-          docker build -t ghcr.io/Kord-Extensions/data-collector:latest -t ghcr.io/Kord-Extensions/data-collector:${GITHUB_SHA} .
-          docker push ghcr.io/Kord-Extensions/data-collector:latest
-          docker push ghcr.io/Kord-Extensions/data-collector:${GITHUB_SHA}
+          docker build -t ghcr.io/kord-extensions/data-collector:latest -t ghcr.io/kord-extensions/data-collector:${GITHUB_SHA} .
+          docker push ghcr.io/kord-extensions/data-collector:latest
+          docker push ghcr.io/kord-extensions/data-collector:${GITHUB_SHA}
