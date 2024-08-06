@@ -1,5 +1,5 @@
 [versions]
-exposed = "0.42.0"
+exposed = "0.53.0"
 flyway = "10.17.0"
 hikari = "5.1.0"
 kotlin = "2.0.0"
