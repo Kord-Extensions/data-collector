@@ -6,43 +6,5 @@ data collection enabled.
 It provides a simple API allowing for submission of bot-specific data (under each data collection mode), and the 
 self-service removal of said data via HTTP request.
 
-# Data Collection Modes
-
-Kord Extensions supports the following data collection modes.
-
-## None
-
-This mode disables data collection, and Kord Extensions won't collect any data.
-
-## Minimal
-
-This mode collects the following data:
-
-- The submission date.
-- Whether the bot was running in development mode.
-- The version of Kord and Kord Extensions in use.
-- A list of first-party modules the bot is using.
-
-## Standard
-
-This mode collects the data specified in the Minimal mode, plus:
-
-- The Discord ID and name belonging to the Discord bot.
-- The number of loaded extensions and plugins.
-- The number of visible guilds.
-- A list of enabled intents.
-- Current JVM and Kotlin versions.
-
-This is the default data collection mode.
-
-## Extra
-
-This mode collects the data specified in the Standard mode, plus:
-
-- Environmental data:
-  - Available RAM.
-  - CPU count and GHz, and thread count.
-- A list of event types with configured event handlers.
-- The names of loaded extensions and plugins.
-- The ID and name of the bot's owning Discord team, if one exists.
-  - If the bot belongs to a single user, Kord Extensions will not collect this data.
+For information on the data collection system and what data is collected, please 
+[read the documentation](https://docs.kordex.dev/data-collection).
