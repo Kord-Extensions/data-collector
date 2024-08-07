@@ -76,6 +76,8 @@ fun DataTable.entityToStatement(entity: Entity, statement: UpdateBuilder<*>) {
 		statement[guildCount] = entity.guildCount
 		statement[intents] = entity.intents
 		statement[pluginCount] = entity.pluginCount
+		statement[jvmVersion] = entity.jvmVersion
+		statement[kotlinVersion] = entity.kotlinVersion
 	}
 
 	if (entity is ExtraEntity) {
@@ -83,8 +85,6 @@ fun DataTable.entityToStatement(entity: Entity, statement: UpdateBuilder<*>) {
 		statement[cpuGhz] = entity.cpuGhz
 		statement[eventHandlerTypes] = entity.eventHandlerTypes
 		statement[extensions] = entity.extensions
-		statement[jvmVersion] = entity.jvmVersion
-		statement[kotlinVersion] = entity.kotlinVersion
 		statement[plugins] = entity.plugins
 		statement[ramAvailable] = entity.ramAvailable
 		statement[teamId] = entity.teamId

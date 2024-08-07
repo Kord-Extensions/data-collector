@@ -34,6 +34,8 @@ data class StandardDataEntity(
 	override val guildCount: Int,
 	override val intents: StringList,
 	override val pluginCount: Int,
+	override val jvmVersion: String,
+	override val kotlinVersion: String,
 ) : StandardEntity {
 	@Transient
 	override val metricType: DataCollection = DataCollection.Standard

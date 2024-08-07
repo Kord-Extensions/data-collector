@@ -16,4 +16,6 @@ interface StandardEntity : MinimalEntity {
 	val guildCount: Int
 	val intents: StringList
 	val pluginCount: Int
+	val jvmVersion: String
+	val kotlinVersion: String
 }

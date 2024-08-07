@@ -14,8 +14,6 @@ interface ExtraEntity : StandardEntity {
 	val cpuGhz: Float
 	val eventHandlerTypes: StringList
 	val extensions: StringList
-	val jvmVersion: String
-	val kotlinVersion: String
 	val plugins: StringList
 	val ramAvailable: Long
 	val threadCount: Int

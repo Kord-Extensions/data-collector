@@ -31,6 +31,7 @@ This mode collects the data specified in the Minimal mode, plus:
 - The number of loaded extensions and plugins.
 - The number of visible guilds.
 - A list of enabled intents.
+- Current JVM and Kotlin versions.
 
 This is the default data collection mode.
 
@@ -38,11 +39,9 @@ This is the default data collection mode.
 
 This mode collects the data specified in the Standard mode, plus:
 
-- Average event delay and throughput.
 - Environmental data:
   - Available RAM.
   - CPU count and GHz, and thread count.
-  - Current JVM and Kotlin versions.
 - A list of event types with configured event handlers.
 - The names of loaded extensions and plugins.
 - The ID and name of the bot's owning Discord team, if one exists.

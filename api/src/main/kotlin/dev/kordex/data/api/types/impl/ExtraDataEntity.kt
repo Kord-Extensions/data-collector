@@ -34,14 +34,14 @@ data class ExtraDataEntity(
 	override val guildCount: Int,
 	override val intents: StringList,
 	override val pluginCount: Int,
+	override val jvmVersion: String,
+	override val kotlinVersion: String,
 
 	// Extra data
 	override val cpuCount: Int,
 	override val cpuGhz: Float,
 	override val eventHandlerTypes: StringList,
 	override val extensions: StringList,
-	override val jvmVersion: String,
-	override val kotlinVersion: String,
 	override val plugins: StringList,
 	override val ramAvailable: Long,
 	override val threadCount: Int,
