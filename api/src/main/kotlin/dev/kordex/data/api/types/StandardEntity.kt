@@ -19,4 +19,9 @@ interface StandardEntity : MinimalEntity {
 	val pluginCount: Int
 	val jvmVersion: String
 	val kotlinVersion: String
+
+	val chatCommandCount: Int?
+	val messageCommandCount: Int?
+	val slashCommandCount: Int?
+	val userCommandCount: Int?
 }

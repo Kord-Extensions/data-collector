@@ -40,6 +40,11 @@ data class DataEntity(
 	val intents: StringList? = null,
 	val pluginCount: Int? = null,
 
+	val chatCommandCount: Int? = null,
+	val messageCommandCount: Int? = null,
+	val slashCommandCount: Int? = null,
+	val userCommandCount: Int? = null,
+
 	// Extra data
 	val cpuCount: Int? = null,
 	val cpuGhz: Float? = null,
@@ -79,6 +84,12 @@ data class DataEntity(
 		}
 
 		if (pluginCount != other.pluginCount) return false
+
+		if (chatCommandCount != other.chatCommandCount) return false
+		if (messageCommandCount != other.messageCommandCount) return false
+		if (slashCommandCount != other.slashCommandCount) return false
+		if (userCommandCount != other.userCommandCount) return false
+
 		if (cpuCount != other.cpuCount) return false
 		if (cpuGhz != other.cpuGhz) return false
 
@@ -129,6 +140,12 @@ data class DataEntity(
 		result = 31 * result + (jvmVersion?.hashCode() ?: 0)
 		result = 31 * result + (kotlinVersion?.hashCode() ?: 0)
 		result = 31 * result + (pluginCount ?: 0)
+
+		result = 31 * result + (chatCommandCount ?: 0)
+		result = 31 * result + (messageCommandCount ?: 0)
+		result = 31 * result + (slashCommandCount ?: 0)
+		result = 31 * result + (userCommandCount ?: 0)
+
 		result = 31 * result + (plugins?.contentHashCode() ?: 0)
 		result = 31 * result + (ramAvailable?.hashCode() ?: 0)
 		result = 31 * result + (teamId?.hashCode() ?: 0)

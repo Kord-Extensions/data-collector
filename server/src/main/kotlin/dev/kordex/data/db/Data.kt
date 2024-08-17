@@ -37,6 +37,10 @@ object Data {
 		DataTable.insert {
 			it[submitted] = Clock.System.now().toLocalDateTime(TimeZone.UTC)
 
+			if (entity.id != null) {
+				it[id] = entity.id!!
+			}
+
 			DataTable.entityToStatement(entity, it)
 		}[DataTable.id].value
 	}
@@ -79,6 +83,11 @@ fun DataTable.entityToStatement(entity: Entity, statement: UpdateBuilder<*>) {
 		statement[pluginCount] = entity.pluginCount
 		statement[jvmVersion] = entity.jvmVersion
 		statement[kotlinVersion] = entity.kotlinVersion
+
+		statement[chatCommandCount] = entity.chatCommandCount
+		statement[messageCommandCount] = entity.messageCommandCount
+		statement[slashCommandCount] = entity.slashCommandCount
+		statement[userCommandCount] = entity.userCommandCount
 	}
 
 	if (entity is ExtraEntity) {
@@ -111,6 +120,11 @@ fun DataTable.entityFromRow(row: ResultRow) = DataEntity(
 	guildCount = row[guildCount],
 	intents = row[intents],
 	pluginCount = row[pluginCount],
+
+	chatCommandCount = row[chatCommandCount],
+	messageCommandCount = row[messageCommandCount],
+	slashCommandCount = row[slashCommandCount],
+	userCommandCount = row[userCommandCount],
 
 	cpuCount = row[cpuCount],
 	cpuGhz = row[cpuGhz],

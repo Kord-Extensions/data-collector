@@ -38,6 +38,12 @@ object DataTable : UUIDTable("data") {
 	val intents = json<StringList>("intents", Json).nullable()
 	val pluginCount = integer("plugin_count").nullable()
 
+	// Standard: Command Counts
+	val chatCommandCount = integer("chat_command_count").nullable()
+	val messageCommandCount = integer("message_command_count").nullable()
+	val slashCommandCount = integer("slash_command_count").nullable()
+	val userCommandCount = integer("user_command_count").nullable()
+
 	// Extra data
 	val cpuCount = integer("cpu_count").nullable()
 	val cpuGhz = float("cpu_ghz").nullable()

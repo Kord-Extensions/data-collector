@@ -37,6 +37,11 @@ data class StandardDataEntity(
 	override val pluginCount: Int,
 	override val jvmVersion: String,
 	override val kotlinVersion: String,
+
+	override val chatCommandCount: Int?,
+	override val messageCommandCount: Int?,
+	override val slashCommandCount: Int?,
+	override val userCommandCount: Int?,
 ) : StandardEntity {
 	@Transient
 	override val metricType: DataCollection = DataCollection.Standard
@@ -59,6 +64,11 @@ data class StandardDataEntity(
 		if (modules != other.modules) return false
 		if (pluginCount != other.pluginCount) return false
 
+		if (chatCommandCount != other.chatCommandCount) return false
+		if (messageCommandCount != other.messageCommandCount) return false
+		if (slashCommandCount != other.slashCommandCount) return false
+		if (userCommandCount != other.userCommandCount) return false
+
 		if (!intents.contentEquals(other.intents)) return false
 
 		return true
@@ -78,6 +88,11 @@ data class StandardDataEntity(
 		result = 31 * result + metricType.hashCode()
 		result = 31 * result + modules.hashCode()
 		result = 31 * result + pluginCount
+
+		result = 31 * result + (chatCommandCount ?: 0)
+		result = 31 * result + (messageCommandCount ?: 0)
+		result = 31 * result + (slashCommandCount ?: 0)
+		result = 31 * result + (userCommandCount ?: 0)
 
 		return result
 	}

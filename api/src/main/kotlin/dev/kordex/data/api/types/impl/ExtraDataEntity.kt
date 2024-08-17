@@ -38,6 +38,11 @@ data class ExtraDataEntity(
 	override val jvmVersion: String,
 	override val kotlinVersion: String,
 
+	override val chatCommandCount: Int?,
+	override val messageCommandCount: Int?,
+	override val slashCommandCount: Int?,
+	override val userCommandCount: Int?,
+
 	// Extra data
 	override val cpuCount: Int,
 	override val cpuGhz: Float,
@@ -77,6 +82,12 @@ data class ExtraDataEntity(
 		if (metricType != other.metricType) return false
 		if (modules != other.modules) return false
 		if (pluginCount != other.pluginCount) return false
+
+		if (chatCommandCount != other.chatCommandCount) return false
+		if (messageCommandCount != other.messageCommandCount) return false
+		if (slashCommandCount != other.slashCommandCount) return false
+		if (userCommandCount != other.userCommandCount) return false
+
 		if (ramAvailable != other.ramAvailable) return false
 		if (threadCount != other.threadCount) return false
 
@@ -110,6 +121,12 @@ data class ExtraDataEntity(
 		result = 31 * result + metricType.hashCode()
 		result = 31 * result + modules.hashCode()
 		result = 31 * result + pluginCount
+
+		result = 31 * result + (chatCommandCount ?: 0)
+		result = 31 * result + (messageCommandCount ?: 0)
+		result = 31 * result + (slashCommandCount ?: 0)
+		result = 31 * result + (userCommandCount ?: 0)
+
 		result = 31 * result + plugins.contentHashCode()
 		result = 31 * result + ramAvailable.hashCode()
 		result = 31 * result + threadCount
