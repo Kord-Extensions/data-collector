@@ -1,6 +1,6 @@
 [versions]
 exposed = "0.42.0"
-flyway = "10.17.0"
+flyway = "10.17.1"
 hikari = "5.1.0"
 kotlin = "2.0.0"
 ktor = "2.3.12"
