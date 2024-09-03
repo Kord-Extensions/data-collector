@@ -46,7 +46,8 @@ object Data {
 	}
 
 	suspend fun read(id: UUID): DataEntity? = Database.transaction {
-		DataTable.select { DataTable.id eq id }
+		DataTable.selectAll()
+			.where { DataTable.id eq id }
 			.map { DataTable.entityFromRow(it) }
 			.singleOrNull()
 	}

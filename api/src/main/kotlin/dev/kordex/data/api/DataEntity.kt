@@ -8,7 +8,7 @@
 
 package dev.kordex.data.api
 
-import dev.kordex.data.api.serializers.UUIDSerializer
+import dev.kordex.data.api.serializers.KXUUIDSerializer
 import kotlinx.datetime.Clock
 import kotlinx.datetime.LocalDateTime
 import kotlinx.datetime.TimeZone
@@ -18,7 +18,7 @@ import java.util.*
 
 @Serializable
 data class DataEntity(
-	@Serializable(with = UUIDSerializer::class)
+	@Serializable(with = KXUUIDSerializer::class)
 	val id: UUID? = null,
 
 	val submitted: LocalDateTime = Clock.System.now().toLocalDateTime(TimeZone.UTC),

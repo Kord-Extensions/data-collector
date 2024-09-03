@@ -1,10 +1,11 @@
 [versions]
-exposed = "0.42.0"
-flyway = "10.17.0"
+exposed = "0.53.0"
+flyway = "10.17.1"
 hikari = "5.1.0"
-kotlin = "2.0.0"
-ktor = "2.3.12"
-logback = "1.4.14"
+kotlin = "2.0.20"
+kx-datetime = "0.6.1"
+kx-serialization = "1.7.2"
+logback = "1.5.7"
 postgres = "42.7.3"
 
 [libraries]
@@ -20,6 +21,10 @@ hikari = { module = "com.zaxxer:HikariCP", version.ref = "hikari" }
 postgres = { module = "org.postgresql:postgresql", version.ref = "postgres" }
 
 logback = { module = "ch.qos.logback:logback-classic", version.ref = "logback" }
+
+kotlin = { module = "org.jetbrains.kotlin:kotlin-stdlib-jdk8", version.ref = "kotlin" }
+kx-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.ref = "kx-datetime" }
+kx-serialization = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kx-serialization" }
 
 ktor-serialization = { module = "io.ktor:ktor-serialization-kotlinx-json-jvm" }
 ktor-server-compression = { module = "io.ktor:ktor-server-compression-jvm" }

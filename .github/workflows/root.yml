@@ -55,7 +55,7 @@ jobs:
           TOKEN: "${{ secrets.TOKEN }}"
 
       - name: Login to GitHub Container Registry
-        uses: docker/login-action@v1
+        uses: docker/login-action@v3
 
         with:
           registry: ghcr.io

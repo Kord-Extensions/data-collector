@@ -10,7 +10,7 @@ package dev.kordex.data.api.types.impl
 
 import dev.kordex.data.api.DataCollection
 import dev.kordex.data.api.StringMap
-import dev.kordex.data.api.serializers.UUIDSerializer
+import dev.kordex.data.api.serializers.KXUUIDSerializer
 import dev.kordex.data.api.types.MinimalEntity
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.Transient
@@ -18,7 +18,7 @@ import java.util.*
 
 @Serializable
 data class MinimalDataEntity(
-	@Serializable(with = UUIDSerializer::class)
+	@Serializable(with = KXUUIDSerializer::class)
 	override val id: UUID? = null,
 
 	override val devMode: Boolean,

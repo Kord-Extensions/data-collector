@@ -10,7 +10,7 @@ package dev.kordex.data.plugins
 
 import dev.kordex.data.api.DataCollection
 import dev.kordex.data.api.serializers.DataCollectionSerializer
-import dev.kordex.data.api.serializers.UUIDSerializer
+import dev.kordex.data.api.serializers.KXUUIDSerializer
 import io.ktor.serialization.kotlinx.json.*
 import io.ktor.server.application.*
 import io.ktor.server.plugins.contentnegotiation.*
@@ -27,7 +27,7 @@ fun Application.configureSerialization() {
 					include(Json.serializersModule)
 
 					contextual<DataCollection>(DataCollectionSerializer)
-					contextual<UUID>(UUIDSerializer)
+					contextual<UUID>(KXUUIDSerializer)
 				}
 			}
 		)

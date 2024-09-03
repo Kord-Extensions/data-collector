@@ -11,7 +11,7 @@ package dev.kordex.data.api.types.impl
 import dev.kordex.data.api.DataCollection
 import dev.kordex.data.api.StringList
 import dev.kordex.data.api.StringMap
-import dev.kordex.data.api.serializers.UUIDSerializer
+import dev.kordex.data.api.serializers.KXUUIDSerializer
 import dev.kordex.data.api.types.ExtraEntity
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.Transient
@@ -19,7 +19,7 @@ import java.util.*
 
 @Serializable
 data class ExtraDataEntity(
-	@Serializable(with = UUIDSerializer::class)
+	@Serializable(with = KXUUIDSerializer::class)
 	override val id: UUID? = null,
 
 	// Minimal data
