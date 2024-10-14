@@ -5,7 +5,7 @@ hikari = "5.1.0"
 kotlin = "2.0.20"
 kx-datetime = "0.6.1"
 kx-serialization = "1.7.2"
-logback = "1.5.7"
+logback = "1.5.10"
 postgres = "42.7.3"
 
 [libraries]
