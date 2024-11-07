@@ -31,7 +31,7 @@ data class DataEntity(
 	val kordExVersion: String,
 	val kordVersion: String,
 	val modules: StringMap,
-	val framework: String? = null,
+	val fork: String? = null,
 
 	// Standard data
 	val botId: String? = null,

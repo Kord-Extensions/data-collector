@@ -25,7 +25,7 @@ data class MinimalDataEntity(
 	override val kordExVersion: String,
 	override val kordVersion: String,
 	override val modules: StringMap,
-	override val framework: String? = null,
+	override val fork: String? = null,
 ) : MinimalEntity {
 	@Transient
 	override val metricType: DataCollection = DataCollection.Minimal

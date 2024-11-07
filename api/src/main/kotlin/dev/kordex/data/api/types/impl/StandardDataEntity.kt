@@ -27,7 +27,7 @@ data class StandardDataEntity(
 	override val kordExVersion: String,
 	override val kordVersion: String,
 	override val modules: StringMap,
-	override val framework: String? = null,
+	override val fork: String? = null,
 
 	// Standard data
 	override val botId: String,
@@ -53,7 +53,7 @@ data class StandardDataEntity(
 
 		other as StandardDataEntity
 
-		if (framework != other.framework) return false
+		if (fork != other.fork) return false
 		if (botId != other.botId) return false
 		if (botName != other.botName) return false
 		if (devMode != other.devMode) return false
@@ -89,7 +89,7 @@ data class StandardDataEntity(
 		result = 31 * result + kordVersion.hashCode()
 		result = 31 * result + metricType.hashCode()
 		result = 31 * result + modules.hashCode()
-		result = 31 * result + framework.hashCode()
+		result = 31 * result + fork.hashCode()
 		result = 31 * result + pluginCount
 
 		result = 31 * result + (chatCommandCount ?: 0)

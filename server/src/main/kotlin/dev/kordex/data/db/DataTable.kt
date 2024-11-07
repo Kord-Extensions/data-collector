@@ -29,7 +29,7 @@ object DataTable : UUIDTable("data") {
 	val kordExVersion = text("kordex_version")
 	val kordVersion = text("kord_version")
 	val modules = json<StringMap>("modules", Json)
-	val framework = text("framework").nullable()
+	val fork = text("fork").nullable()
 
 	// Standard data
 	val botId = text("bot_id").nullable().check { it regexp "\\d+" }
