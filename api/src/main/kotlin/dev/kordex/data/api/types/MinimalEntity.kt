@@ -15,4 +15,5 @@ interface MinimalEntity : Entity {
 	val kordExVersion: String
 	val kordVersion: String
 	val modules: StringMap
+	val framework: String?
 }

@@ -73,6 +73,7 @@ fun DataTable.entityToStatement(entity: Entity, statement: UpdateBuilder<*>) {
 		statement[kordExVersion] = entity.kordExVersion
 		statement[kordVersion] = entity.kordVersion
 		statement[modules] = entity.modules
+		statement[framework] = entity.framework
 	}
 
 	if (entity is StandardEntity) {
@@ -114,6 +115,7 @@ fun DataTable.entityFromRow(row: ResultRow) = DataEntity(
 	kordExVersion = row[kordExVersion],
 	kordVersion = row[kordVersion],
 	modules = row[modules],
+	framework = row[framework],
 
 	botId = row[botId],
 	botName = row[botName],
