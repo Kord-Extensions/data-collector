@@ -6,7 +6,7 @@ kotlin = "2.0.20"
 kx-datetime = "0.6.1"
 kx-serialization = "1.7.2"
 logback = "1.5.7"
-postgres = "42.7.3"
+postgres = "42.7.4"
 
 [libraries]
 exposed-core = { module = "org.jetbrains.exposed:exposed-core", version.ref = "exposed" }
