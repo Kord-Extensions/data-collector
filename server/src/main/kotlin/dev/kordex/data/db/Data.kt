@@ -10,23 +10,44 @@ package dev.kordex.data.db
 
 import dev.kordex.data.api.DataCollection
 import dev.kordex.data.api.DataEntity
-import dev.kordex.data.api.types.*
+import dev.kordex.data.api.types.Entity
+import dev.kordex.data.api.types.ExtraEntity
+import dev.kordex.data.api.types.MinimalEntity
+import dev.kordex.data.api.types.StandardEntity
 import kotlinx.datetime.Clock
 import kotlinx.datetime.TimeZone
 import kotlinx.datetime.toLocalDateTime
 import org.jetbrains.exposed.sql.*
 import org.jetbrains.exposed.sql.SqlExpressionBuilder.eq
 import org.jetbrains.exposed.sql.statements.UpdateBuilder
+import org.slf4j.LoggerFactory
 import java.util.*
 
 object Data {
+	private val logger = LoggerFactory.getLogger(Data::class.java)
+
 	suspend fun upsert(entity: Entity): UUID {
-		if (entity.id == null) {
-			return create(entity)
+		val entityId = entity.id
+
+		if (entityId == null) {
+			val uuid = create(entity)
+
+			logger.info("Received entity with no ID - created new UUID: $uuid")
+
+			return uuid
 		}
 
-		read(entity.id!!)
-			?: return create(entity)
+		if (read(entityId) == null) {
+			logger.info("Entity $entityId not found - creating it")
+
+			val uuid = create(entity)
+
+			logger.info("Entity $entityId created with UUID $uuid")
+
+			return uuid
+		}
+
+		logger.info("Updating entity with ID $entityId")
 
 		update(entity)
 
